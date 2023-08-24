@@ -1,2 +1,2 @@
 # datacampus
-datacampus project 
+Datacampus Project 
