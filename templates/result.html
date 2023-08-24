@@ -1,0 +1,55 @@
+<html>
+{% include 'index.html'%}
+{% block content %}
+<link href="/static/styles.css" rel="stylesheet" type="text/css"/>
+<link href="/static/font.css" rel="stylesheet" type="text/css"/>
+<body class = "result-page">
+    <br>
+    <br>
+    <br>
+    <p>     
+        {% if time == '1' %}
+        <div style="margin-right:550px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
+            {% if value > 0.5 %}
+            <div style='font-size:30px;'>
+                <br><br><br><br> 해당 기사로 인해 <strong>당일 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ positive }}% 입니다
+            </div>
+            {% else %}
+            <div style='font-size:30px;'>
+                <br><br><br><br>해당 기사로 인해 <strong>당일 주가</strong>가 <br> 떨어질 확률은 <br> {{ negative }}% 입니다
+            </div>
+            {% endif %}
+        </div>
+        {% elif time == '2' %}
+        <div style="margin-right:550px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
+            {% if value > 0.5 %}
+            <div style='font-size:30px;'>
+                <br><br><br><br> 해당 기사로 인해 <strong>다음날 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ positive }}% 입니다
+            </div>
+            {% else %}
+            <div style='font-size:30px;'>
+                <br><br><br><br> 해당 기사로 인해 <strong>다음날 주가</strong> 가 <br> 떨어질 확률은 <br> {{ negative }}% 입니다
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+        <div style="margin-right:550px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
+            {% if value > 0.5 %}
+            <div style='font-size:30px;'>
+                <br><br><br><br>해당 기사로 인해 <strong>휴일 다음날 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ positive }}% 입니다
+            </div>
+            {% else %}
+            <div style='font-size:30px;'>
+                <br><br><br><br>해당 기사로 인해 <strong>휴일 다음날 주가</strong>가 <br> 떨어질 확률은 <br> {{ negative }}% 입니다
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        <div style="width:300px;height:700; margin-right:120px; border:1px gray; float:right" class="fade-in-box"></div>
+    </p>
+
+
+
+</body>
+</html>
+{% endblock %}
